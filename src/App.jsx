@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Tabs, Tab, Typography } from "@mui/material";
 import TabUseReducer from "./components/useReducer/TabUseReducer";
+import TabUseState from "./components/useState/TabUseState";
 
 function App() {
   const [value, setValue] = useState("useState");
@@ -9,27 +10,45 @@ function App() {
     setValue(newValue);
   };
 
+  // 👇 Completed tabItems array
+  const tabItems = [
+    {
+      label: "useState",
+      value: "useState",
+      component: <TabUseState/>
+    },
+    {
+      label: "useEffect",
+      value: "useEffect",
+      component: (
+        <Typography>
+          **useEffect** example placeholder
+        </Typography>
+      ),
+    },
+    {
+      label: "useReducer",
+      value: "useReducer",
+      component: <TabUseReducer />,
+    },
+  ];
+  // 👆 End of completed tabItems array
+
   return (
     <>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          {/* You can now render the Tabs dynamically */}
           <Tabs value={value} onChange={handleChange} aria-label="react hooks tabs">
-            <Tab label="useState" value="useState" />
-            <Tab label="useEffect" value="useEffect" />
-            <Tab label="useReducer" value="useReducer" />
+            {tabItems.map((item) => (
+              <Tab key={item.value} label={item.label} value={item.value} />
+            ))}
           </Tabs>
         </Box>
 
         <Box sx={{ p: 2 }}>
-          {value === "useState" && (
-            <Typography>useState example placeholder</Typography>
-          )}
-
-          {value === "useEffect" && (
-            <Typography>useEffect example placeholder</Typography>
-          )}
-
-          {value === "useReducer" && <TabUseReducer />}
+          {/* And render the corresponding content dynamically */}
+          {tabItems.find((item) => item.value === value)?.component}
         </Box>
       </Box>
     </>

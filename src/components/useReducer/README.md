@@ -1,4 +1,4 @@
-# 📘 useReducer Hook – README
+# 📘 useReducer Hook
 
 ## 🔍 What is `useReducer`?
 `useReducer` is a React hook used for managing state that is **complex**, **multi-step**, or has **multiple state transitions**.  
