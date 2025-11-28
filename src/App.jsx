@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Box, Tabs, Tab, Typography } from "@mui/material";
 import TabUseReducer from "./components/useReducer/TabUseReducer";
 import TabUseState from "./components/useState/TabUseState";
+import TabUseEffect from "./components/useEffect/TabUseEffect";
 
 function App() {
   const [value, setValue] = useState("useState");
@@ -18,21 +19,17 @@ function App() {
       component: <TabUseState/>
     },
     {
-      label: "useEffect",
-      value: "useEffect",
-      component: (
-        <Typography>
-          **useEffect** example placeholder
-        </Typography>
-      ),
-    },
-    {
       label: "useReducer",
       value: "useReducer",
       component: <TabUseReducer />,
     },
+     {
+      label: "useEffect",
+      value: "useEffect",
+      component: <TabUseEffect />,
+    },
   ];
-  // 👆 End of completed tabItems array
+
 
   return (
     <>
