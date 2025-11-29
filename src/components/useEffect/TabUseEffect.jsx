@@ -20,13 +20,37 @@ const TabUseEffect = () => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      bgcolor="#f0f0f0"
+      bgcolor="#f5f5f5"
+      p={2}
     >
-      <Paper elevation={3} sx={{ p: 4, borderRadius: 3, textAlign: "center" }}>
-        <Typography variant="h4" fontWeight="bold" mb={2}>
-          Current Time
+      <Paper elevation={4} sx={{ p: 4, borderRadius: 3, width: 380 }}>
+        <Typography variant="h5" fontWeight="bold" textAlign="center" mb={2}>
+          useEffect Hook Example
         </Typography>
-        <Typography variant="h5">{time.toLocaleTimeString()}</Typography>
+
+        {/* Description Card */}
+        <Paper
+          elevation={0}
+          sx={{
+            p: 2,
+            mb: 3,
+            borderRadius: 2,
+            bgcolor: "#e8ffe8",
+            border: "1px solid #baffba",
+          }}
+        >
+          <Typography variant="subtitle1" fontWeight="bold">
+            🔍 About useEffect
+          </Typography>
+          <Typography variant="body2">
+            <strong>useEffect</strong> lets you run side effects, such as API
+            calls, timers, subscriptions, and updating the DOM.
+          </Typography>
+        </Paper>
+
+        <Typography variant="h4" textAlign="center">
+          {time.toLocaleTimeString()}
+        </Typography>
       </Paper>
     </Box>
   );

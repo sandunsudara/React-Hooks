@@ -18,38 +18,51 @@ function reducer(state, action) {
 const TabUseReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <Box
-      height="80vh"
+   <Box
+      height="100vh"
       display="flex"
       justifyContent="center"
       alignItems="center"
       bgcolor="#f5f5f5"
+      p={2}
     >
-      <Paper elevation={3} sx={{ p: 4, borderRadius: 3, textAlign: "center" }}>
-        <Typography variant="h4" fontWeight="bold">
-          Count: {state.count}
+      <Paper elevation={4} sx={{ p: 4, borderRadius: 3, width: 380 }}>
+        <Typography variant="h5" fontWeight="bold" textAlign="center" mb={2}>
+          useReducer Hook Example
         </Typography>
 
-        <Stack direction="row" spacing={2} justifyContent="center" mt={3}>
-          <Button
-            variant="contained"
-            onClick={() => dispatch({ type: "increment" })}
-          >
-            Increment
-          </Button>
+        {/* Description Card */}
+        <Paper
+          elevation={0}
+          sx={{
+            p: 2,
+            mb: 3,
+            borderRadius: 2,
+            bgcolor: "#fff7e6",
+            border: "1px solid #ffe1a3",
+          }}
+        >
+          <Typography variant="subtitle1" fontWeight="bold">
+            🔍 About useReducer
+          </Typography>
+          <Typography variant="body2">
+            <strong>useReducer</strong> is ideal for complex state logic or
+            when many updates are controlled by specific actions.
+          </Typography>
+        </Paper>
 
-          <Button
-            variant="outlined"
-            onClick={() => dispatch({ type: "decrement" })}
-          >
-            Decrement
-          </Button>
+        <Typography variant="h4" textAlign="center" mb={3}>
+          {state.count}
+        </Typography>
 
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => dispatch({ type: "reset" })}
-          >
+        <Stack direction="row" spacing={2} justifyContent="center">
+          <Button variant="contained" onClick={() => dispatch({ type: "inc" })}>
+            +
+          </Button>
+          <Button variant="outlined" onClick={() => dispatch({ type: "dec" })}>
+            -
+          </Button>
+          <Button variant="contained" color="secondary" onClick={() => dispatch({ type: "reset" })}>
             Reset
           </Button>
         </Stack>

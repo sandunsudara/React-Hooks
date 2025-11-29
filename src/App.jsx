@@ -3,6 +3,7 @@ import { Box, Tabs, Tab, Typography } from "@mui/material";
 import TabUseReducer from "./components/useReducer/TabUseReducer";
 import TabUseState from "./components/useState/TabUseState";
 import TabUseEffect from "./components/useEffect/TabUseEffect";
+import TabUseRef from "./components/useRef/TabUseRef";
 
 function App() {
   const [value, setValue] = useState("useState");
@@ -27,6 +28,11 @@ function App() {
       label: "useEffect",
       value: "useEffect",
       component: <TabUseEffect />,
+    },
+    {
+      label: "useRef",
+      value: "useRef",
+      component: <TabUseRef />,
     },
   ];
 
