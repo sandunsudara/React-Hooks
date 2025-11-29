@@ -4,6 +4,7 @@ import TabUseReducer from "./components/useReducer/TabUseReducer";
 import TabUseState from "./components/useState/TabUseState";
 import TabUseEffect from "./components/useEffect/TabUseEffect";
 import TabUseRef from "./components/useRef/TabUseRef";
+import TabUseCallback from "./components/useCallback/TabUseCallback";
 
 function App() {
   const [value, setValue] = useState("useState");
@@ -33,6 +34,11 @@ function App() {
       label: "useRef",
       value: "useRef",
       component: <TabUseRef />,
+    },
+    {
+      label: "useCallback",
+      value: "useCallback",
+      component: <TabUseCallback/>,
     },
   ];
 
